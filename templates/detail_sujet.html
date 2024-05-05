@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card mb-3 shadow-sm mt-5">
+    <div class="card-header bg-primary text-white">
+        <div class="card-title fs-3">{{ sujet.titre }}</div>
+    </div>
+    <div class="card-body bg-light text-dark">
+        <p class="card-text"><i class="fas fa-layer-group"></i> <strong>Type:</strong> {{ sujet.get_type_sujet_display }}</p>
+        <p class="card-text"><i class="fas fa-stream"></i> <strong>Filière:</strong> {{ sujet.get_filiere_display }}</p>
+        <p class="card-text"><i class="fas fa-signal"></i> <strong>Niveau:</strong> {{ sujet.get_niveau_display }}</p>
+        <p class="card-text"><i class="fas fa-book-open"></i> <strong>Cours:</strong> {{ sujet.nom_cours }}</p>
+        <p class="card-text"><i class="fas fa-code"></i> <strong>Code du cours:</strong> {{ sujet.code_cours }}</p>
+        <p class="card-text"><i class="fas fa-calendar-alt"></i> <strong>Année:</strong> {{ sujet.annee }}</p>
+    </div>
+    <div class="card-footer">
+        <a href="{{ sujet.fichier.url }}" class="btn btn-success"><i class="fas fa-download"></i> Télécharger le sujet</a>
+    </div>
+</div>
+{% endblock %}

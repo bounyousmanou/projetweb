@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="contact-container text-light bg-light p-5 border rounded-3 bg-opacity-10">
+            <h2 class="contact-title text-center text-primary mb-4">Contactez-nous</h2>
+            <p class="contact-text text-light text-center mb-5">Nous sommes là pour répondre à toutes vos questions. Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+            
+            <form action="{% url 'contact' %}" method="post" class="contact-form">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nom</label>
+                    <input type="text" id="name" name="name" class="form-control shadow-none" placeholder="Votre Nom" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-control shadow-none" placeholder="Votre Adresse Email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-control shadow-none" rows="6" placeholder="Entrer votre message ici" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

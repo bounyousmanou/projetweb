@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Recherche - My Fax{% endblock %}
+
+{% block content %}
+
+<!-- Formulaire de recherche -->
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="contact-container text-light bg-light p-5 border rounded-3 bg-opacity-10">
+            <h2 class="fw-bold text-center text-primary">Trouvez un Sujet</h2>
+            <p class="lead text-center">Les sujets sont accessibles via le formulaire ci-dessous. Sélectionnez
+                simplement votre type de sujet, filière et niveau pour commencer votre recherche.</p>
+            <form method="get" action="{% url 'liste_sujets' %}" class="form-recherche">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="type_sujet" class="form-label">Type de sujet :</label>
+                        <select name="type_sujet" id="type_sujet" class="form-select shadow-none">
+                            {% for choix in type_sujet_choices %}
+                            <option value="{{ choix.0 }}">{{ choix.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="filiere" class="form-label">Filière :</label>
+                        <select name="filiere" id="filiere" class="form-select shadow-none">
+                            {% for choix in filiere_choices %}
+                            <option value="{{ choix.0 }}">{{ choix.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="niveau" class="form-label">Niveau :</label>
+                        <select name="niveau" id="niveau" class="form-select shadow-none">
+                            {% for choix in niveau_choices %}
+                            <option value="{{ choix.0 }}">{{ choix.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Rechercher</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Accueil - My Fax{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row align-items-center shadow">
+        <div class="col-lg-3 order-lg-2">
+            <img src="{% static 'img/main.png' %}" alt="My Fax, votre partenaire pour la réussite académique" class="img-fluid rounded">
+        </div>
+        <div class="col-lg-9 text-light order-lg-1">
+            <h1 class="display-4 text-primary fw-bold mb-4">Votre Licence, Notre Mission</h1>
+            <p class="lead">Optimisez votre parcours académique avec My Fax. Accédez à une bibliothèque complète de ressources pédagogiques pour exceller dans vos études et décrocher votre Licence avec brio.</p>
+            <p class="lead">Explorez des sujets d'examen triés par discipline, niveau et année académique. Profitez de notre plateforme intuitive pour consulter ou télécharger le matériel nécessaire à votre succès.</p>
+            
+            <div class="d-flex gap-3 flex-wrap">
+                <a class="btn btn-primary btn-lg" href="{% url 'search' %}">
+                    <i class="bi bi-search"></i> Découvrir les ressources
+                </a>
+                <a class="btn btn-outline-secondary btn-lg" href="{% url 'propos' %}">
+                    <i class="bi bi-info-circle"></i> À propos de My Fax
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Requête incorrecte
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center text-light">
+                <h1 class="display-4 text-secondary">400</h1>
+                <p class="lead">Hmm... Il semble y avoir un problème avec votre demande.</p>
+                <p>Vérifiez l'URL ou essayez de naviguer à partir de notre page d'accueil.</p>
+                <a href="{% url 'home' %}" class="btn btn-lg btn-secondary">Retour à l'accueil</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}À propos - My Fax{% endblock %}
+
+{% block content %}
+<div class="row flex-lg-row-reverse align-items-center g-5 py-5 shadow">
+    <div class="col-lg-3">
+        <img src="{% static 'img/about-us.png' %}" class="d-block mx-auto img-fluid rounded" alt="Notre équipe My Fax" loading="lazy">
+    </div>
+    <div class="col-lg-9 text-light">
+        <h1 class="display-4 fw-bold text-primary mb-3">Notre Histoire, Votre Avenir</h1>
+        <p class="lead">Fondé par des passionnés de l'éducation, My Fax est né de la volonté de révolutionner l'apprentissage universitaire. Nous mettons à votre disposition des outils innovants pour une préparation optimale à la Licence.</p>
+        <p class="lead">Notre plateforme est le fruit d'une collaboration étroite entre experts pédagogiques et technologues, tous animés par le désir de contribuer à votre succès académique.</p>
+        <p class="lead">Chez My Fax, nous valorisons l'excellence et l'accessibilité. Découvrez comment nous pouvons vous accompagner dans la réalisation de vos objectifs éducatifs.</p>
+        <div class="d-flex gap-3 mt-4">
+            <a class="btn btn-success btn-lg" href="#">Notre équipe</a>
+            <a class="btn btn-outline-primary btn-lg" href="#">Notre mission</a>
+        </div>
+    </div>
+</div>
+<hr class="text-light">
+<div class="row align-items-center shadow">
+    <div class="col-lg-9 text-light">
+        <h2 class="fw-bold text-primary">Pourquoi choisir My Fax ?</h2>
+        <p class="lead">Notre engagement envers l'excellence académique et notre approche personnalisée de l'enseignement nous distinguent. Voici quelques raisons de nous faire confiance :</p>
+        <ul class="list-unstyled mt-4">
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Une bibliothèque riche et constamment mise à jour</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Des outils d'apprentissage interactifs et engageants</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Un soutien personnalisé pour chaque étudiant</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Une communauté d'étudiants et d'experts dédiée</li>
+        </ul>
+        <a class="btn btn-primary btn-lg mt-4" href="#">Découvrez nos services</a>
+    </div>
+</div>
+{% endblock %}

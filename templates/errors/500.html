@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Erreur interne du serveur
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center text-light">
+                <h1 class="display-4 text-warning">500</h1>
+                <p class="lead">Oups! Quelque chose s'est mal passé de notre côté.</p>
+                <p>Nous travaillons à résoudre le problème. Veuillez essayer de rafraîchir la page ou revenir plus tard.</p>
+                <a href="{% url 'home' %}" class="btn btn-lg btn-warning">Rafraîchir la page</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

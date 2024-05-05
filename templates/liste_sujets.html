@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Barre de recherche -->
+<div class="d-flex justify-content-end">
+    <form action="{% url 'recherche_sujet' %}" method="get" class="search-form">
+        <input class="search-input" type="search" placeholder="Rechercher un sujet" aria-label="Recherche" name="q" required>
+        <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+</div>
+<!-- Titre de la page -->
+<h2 class="fw-bold text-primary text-center mt-5 mb-4">Liste des Sujets</h2>
+
+<div class="alert alert-primary">
+    {% if query %}
+    <div class="lead">Résultats pour <span class="text-warning">{{ query }}</span></div>
+    {% elif filiere_choisie %}
+    <div class="lead">Résultats pour <span class="text-warning"> {{ type_sujet_choisi }}: {{ filiere_choisie }} - {{ niveau_choisi }}</span></div>
+    {% else %}
+    <div class="lead">Explorez notre collection complète de sujets. Utilisez la barre de recherche ci-dessus pour filtrer les résultats selon vos intérêts.</div>
+    {% endif %}
+</div>    
+
+<!-- Cartes des sujets -->
+<div class="row">
+    {% for sujet in sujets %}
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow">
+            <div class="card-body">
+                <h4 class="card-title">{{ sujet.titre }}</h4>
+                <h5 class="card-subtitle mb-2 text-muted">{{ sujet.code_cours }}</h5>
+                <a href="{% url 'detail_sujet' sujet.id %}" class="btn btn-primary">Voir les détails</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
