@@ -23,7 +23,7 @@
 
 <!-- Cartes des sujets -->
 <div class="row">
-    {% for sujet in sujets %}
+    {% for sujet in page_obj %}
     <div class="col-md-4 mb-3">
         <div class="card h-100 shadow">
             <div class="card-body">
@@ -34,5 +34,25 @@
         </div>
     </div>
     {% endfor %}
+</div>
+<!-- Pagination links -->
+<div class="containner">
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">« première</a>
+                <a href="?page={{ page_obj.previous_page_number }}">précédente</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">suivante</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">dernière »</a>
+            {% endif %}
+        </span>
+    </div>
 </div>
 {% endblock %}

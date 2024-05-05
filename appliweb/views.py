@@ -6,7 +6,7 @@ from .models import Sujet
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
 from django.db.models import Q
-
+from django.core.paginator import Paginator
 
 def home(request):
     return render(request, 'home.html')
@@ -77,7 +77,14 @@ def liste_sujets(request):
         sujets = sujets.filter(filiere=filiere_choisie)
         sujets = sujets.filter(niveau=niveau_choisi)
     
-    return render(request, 'liste_sujets.html', {'sujets': sujets, 'type_sujet_choisi': type_sujet_choisi,'filiere_choisie': filiere_choisie, 'niveau_choisi': niveau_choisi})
+    paginator = Paginator(sujets, 5) # 5 sujets par page
+    # Récupérer le numéro de la page actuelle depuis la requête GET
+    page_number = request.GET.get('page')
+    # Récupérer les sujets pour la page actuelle
+    page_obj = paginator.get_page(page_number)
+
+    
+    return render(request, 'liste_sujets.html', {'page_obj': page_obj, 'type_sujet_choisi': type_sujet_choisi,'filiere_choisie': filiere_choisie, 'niveau_choisi': niveau_choisi})
 
 @login_required
 def detail_sujet(request, sujet_id):
@@ -101,7 +108,13 @@ def recherche_sujet(request):
     else:
         sujets = Sujet.objects.all()  # Si aucune recherche n'est effectuée, renvoie tous les sujets
 
-    return render(request, 'liste_sujets.html', {'sujets': sujets, 'query': query})
+    paginator = Paginator(sujets, 5) # 5 sujets par page
+    # Récupérer le numéro de la page actuelle depuis la requête GET
+    page_number = request.GET.get('page')
+    # Récupérer les sujets pour la page actuelle
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'liste_sujets.html', {'page_obj': page_obj, 'query': query})
 
 @login_required
 @permission_required('is_superuser')
